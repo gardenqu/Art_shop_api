@@ -1,17 +1,21 @@
 import os
+import dotenv
 from flask import Flask
 from flask_migrate import Migrate
+from dotenv import load_dotenv
+# a=find_dotenv("art_shop/.env") make sure the paths also exsist in the container, 
+load_dotenv() #default: looks in project root 
 
-b=os.getenv("POST_URI")
 
-print(b)
+
+
 def create_app(test_config=None):
     #creates and configures the app
    
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY='dev',
-        SQLALCHEMY_DATABASE_URI=os.getenv("POST_URI"),
+        SQLALCHEMY_DATABASE_URI=f"postgresql://{os.getenv('DB_USERNAME')}:{os.getenv('DB_PASS')}@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}",
         SQLALCHEMY_TRACK_MODIFICATIONS=False,
     )
 
