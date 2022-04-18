@@ -1,10 +1,27 @@
-version: '3.4'
-
+version: '2'
 services:
-  artshop:
-    image: artshop
-    build:
-      context: .
-      dockerfile: ./Dockerfile
-    ports:
-      - 5002:5002
+    web:
+        build: ./app
+        command: gunicorn app:application --bind 0.0.0.0:5002
+        ports:
+            - "5002:5002"
+        volumes:
+            - - ./art_shop/:/usr/src/app/
+        depends_on:
+            - redis
+    redis:
+        image: redis
+
+
+# version: '3.4'
+
+# services:
+#   artshop:
+#     image: artshop
+#     build:
+#       context: .
+#       dockerfile: ./Dockerfile
+#     ports:
+#       - 5002:5002
+
+
