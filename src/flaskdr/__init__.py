@@ -3,7 +3,7 @@ from flask import Flask
 from flask_migrate import Migrate
 from dotenv import load_dotenv
 # a=find_dotenv("art_shop/.env") make sure the paths also exsist in the container, 
-load_dotenv() #default: looks in project root http://ec2-3-228-135-242.compute-1.amazonaws.com:5002
+load_dotenv() #default: looks in project root 
 
 
 
