@@ -20,15 +20,7 @@ services:
           DB_DATABASE: postgres
           VIRTUAL_HOST: "${ec2}"
           VIRTUAL_PORT: 5002
-    nginx:
-    build: ./nginx
-    image: 301180448685.dkr.ecr.us-east-1.amazonaws.com/art-store-project:art_shop_web
-    volumes:
-      - static_volume:/usr/src/app/static
-    ports:
-      - 5002:80
-    depends_on:
-      - web
+
 
 
 
