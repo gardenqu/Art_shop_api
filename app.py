@@ -69,14 +69,6 @@ def main():
     
     order_and_art=set()
 
-### new_likes = [{"user_id": pair[0], "tweet_id": pair[1]} for pair in list(user_tweet_pairs)]
-    #insert_likes_query = likes_table.insert().values(new_likes)
-    #db.session.execute(insert_likes_query)
-    #how to populate data into the order_artwork table , create a set for the pairs, then create a while or for loop to store the pairs in a tuple  then inser that tuple into the 
-    #the order_art table 
-
-    
-
     while len(order_and_art)<order_count:
         purchases=(
             random.randint(last_order.id - order_count+ 1, last_order.id),
